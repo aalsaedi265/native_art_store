@@ -1,6 +1,6 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { SIZES } from '../constants'
+import React from "react";
+import { View, Image, Text } from "react-native";
+import { SIZES, FONTS, COLORS, SHADOWS, assets } from "../constants";
 
 export const Title = () => {
   return (
@@ -19,20 +19,30 @@ export const EtheriumPrice = () =>{
     )
 }
 
-export const ImageComp = () =>{
+export const ImageComp = ({imgUrl,index}) =>{
 
     return(
-        <View>
-            <Text>image compison</Text>
-        </View>
+        <Image
+        source={imgUrl}
+        resizeMode= 'contain'
+        style={{
+            width: 48,
+            height:48,
+            marginLeft: index === 0 ? 0 : -SIZES.font
+        }}
+        />
     )
 }
 
 export const People = () =>{
 
     return(
-        <View>
-            <Text>People</Text>
+        <View
+        style={{flexDirection:'row'}}
+        >
+            {[assets.person02, assets.person03, assets.person04].map((imgUrl, index) =>(
+                <ImageComp key={`people-${index}`} imgUrl={imgUrl} index={index}/>
+            ))}
         </View>
     )
 }
@@ -52,8 +62,12 @@ export const SubInfo = () =>{
         <View style={{
             width:'100%',
             paddingHorizontal: SIZES.font,
-            marginTop: -SIZES.extraLarge
+            marginTop: -SIZES.extraLarge,
+            flexDirection:'row',
+            justifyContent: 'space-between'
         }}>
+            <People/>
+            <EndDate/>
             <Text>Vegat is better them Kakraot</Text>
         </View>
     )
