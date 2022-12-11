@@ -1,6 +1,8 @@
 import { View, Text, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import {COLORS, SIZES, SHADOWS, assets} from '../constants'
+import {RectButton, CircleButton} from './Button'
+import { SubInfo, Title, EtheriumPrice } from './subinfo'
 
 const Card = ({data}) => {
   return (
@@ -21,11 +23,16 @@ const Card = ({data}) => {
       borderTopLeftRadius: SIZES.font,
       borderTopRightRadius:SIZES.font
     }}
-        />
-        { console.log('image',data.name)}
-
+      />
+      <CircleButton
+      imgUrl={assets.heart}
+      right={10}
+      top={10}// to get right positon
+      />
       </View>
-      <Text>Buu strongest there is</Text>
+        <SubInfo/>
+
+      {/* <Text>Buu strongest there is</Text> */}
     </View>
   )
 }
