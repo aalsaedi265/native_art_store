@@ -50,8 +50,30 @@ export const People = () =>{
 export const EndDate = () =>{
 
     return(
-        <View>
-            <Text>end ate</Text>
+        <View style={{
+            padding:SIZES.font,
+            paddingVertical: SIZES.base,
+            backgroundColor: COLORS.white,
+            justifyContent: 'center',
+            alignItems:'center',
+            ...SHADOWS.light,
+            elevation: 1,
+            maxWidth: '50%'
+
+        }}>
+            <Text style={{
+                fontFamily: FONTS.regular,
+                fontSize: SIZES.small,
+                color: COLORS.primary,
+
+            }}>Count Down</Text>
+
+<Text style={{
+                fontFamily: FONTS.semiBold,
+                fontSize: SIZES.medium,
+                color: COLORS.primary,
+                
+            }}>36h 49m</Text>
         </View>
     )
 }
@@ -68,7 +90,7 @@ export const SubInfo = () =>{
         }}>
             <People/>
             <EndDate/>
-            <Text>Vegat is better them Kakraot</Text>
+            
         </View>
     )
 }
