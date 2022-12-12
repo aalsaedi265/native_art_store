@@ -2,19 +2,43 @@ import React from "react";
 import { View, Image, Text } from "react-native";
 import { SIZES, FONTS, COLORS, SHADOWS, assets } from "../constants";
 
-export const Title = () => {
+export const Title = ({title, subTitle, titleSize, subTitleSize}) => {
   return (
+   
     <View>
-      <Text>NFT title</Text>
+        <Text style={{
+        fontFamily: FONTS.semiBold,
+        fontSize: titleSize,
+        color: COLORS.primary
+        }}>{title}</Text>
+
+        <Text style={{
+        fontFamily: FONTS.regular,
+        fontSize: subTitleSize,
+        color: COLORS.primary
+        }}>{subTitle}</Text>
     </View>
   )
 }
 
-export const EtheriumPrice = () =>{
+export const EtheriumPrice = ({price}) =>{
 
     return(
-        <View>
-            <Text>Etherium Price</Text>
+        <View style={{ 
+        flexDirection: "row", 
+        alignItems: "center" }}
+        >
+        <Image
+        source={assets.eth}
+        resizeMethod="contain"
+        style={{ width:20, height:20, marginLeft:10}}
+        />
+            <Text
+            style={{
+                fontFamily:FONTS.medium,
+                fontSize:SIZES.font
+            }}
+            >{price}</Text>
         </View>
     )
 }

@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import {  useNavigation } from '@react-navigation/native'
 import {COLORS, SIZES, SHADOWS, assets} from '../constants'
 import {RectButton, CircleButton} from './Button'
 import { SubInfo, Title, EtheriumPrice } from './subinfo'
@@ -31,8 +31,33 @@ const Card = ({data}) => {
       />
       </View>
         <SubInfo/>
+        <View style={{
+          width:'100%',
+          padding: SIZES.font
+      }}>
+        <Title 
+        title={data.name} 
+        subTitle={data.creator}
+        titleSize={SIZES.large}
+        subTitleSize={SIZES.small}
+        />
+        </View>
 
-      {/* <Text>Buu strongest there is</Text> */}
+        <View style={{
+         marginTop: SIZES.font,
+         flexDirection: "row",
+         justifyContent: "space-between",
+         alignItems: "center",
+        }}>
+         <EtheriumPrice price={data.price}/>
+         <RectButton
+         minWidth={120}
+         fontSize={SIZES.font}
+         //handlrepress send to detials page
+         handlePress={() => navigation.navigate("Details", { data })}
+         //Details is the name of the screen to go to
+         />
+        </View>
     </View>
   )
 }
