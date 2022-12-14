@@ -5,6 +5,7 @@ import {RectButton, CircleButton} from './Button'
 import { SubInfo, Title, EtheriumPrice } from './subinfo'
 
 const Card = ({data}) => {
+  const navigation = useNavigation();
   return (
     <View style={{
       backgroundColor:COLORS.white,
