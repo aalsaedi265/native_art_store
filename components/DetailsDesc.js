@@ -54,6 +54,12 @@ const DetailsDesc = ({data}) => {
              {text}
             {!readMore && "..."}
             <Text
+                   style={{
+                    color: COLORS.primary,
+                    fontSize: SIZES.small,
+                    fontFamily: FONTS.semiBold,
+                  }}
+
                onPress={()=>{
                 if(!readMore){
                     setText(data.description)
