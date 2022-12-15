@@ -14,6 +14,20 @@ import { FocusedStatusBar , HomeHeader, Card } from '../components'
 
 //dafeArea insrues things are placed only in desganated paramters
 export  default function Home() {
+
+ const [search, setSearch] = useState(NFTData)// take the array of all dummie data from free folder
+
+ function handleSerch(value){
+  
+    if(!value.length) setSearch(NFTData)
+
+    const filterData= NFTData.filter( el=> el.name.toLowerCase().includes(value.toLowerCase() ) )
+
+    filterData.length ? setSearch(filterData) : setSearch(NFTData)
+ }
+
+
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
           <FocusedStatusBar backgroundColor={COLORS.primary} /> 
@@ -23,11 +37,11 @@ export  default function Home() {
       
         <View style={{zIndex:0}}>
             <FlatList
-            data={NFTData}
+            data={search}
             renderItem={({ item })=> <Card data={item}/>}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false} //don't want ugly scholl bar
-            ListHeaderComponent={<HomeHeader/>}
+            ListHeaderComponent={<HomeHeader onSearch={handleSerch}/>}
             />
         </View>
 
